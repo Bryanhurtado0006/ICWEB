@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './Login.css'
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -9,17 +10,16 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica de autenticación
+    
     console.log('Iniciando sesión con:', { email, password, rememberMe });
-    // Redirigir después del login (simulado)
-    // navigate('/dashboard');
+    
   };
 
   return (
-    <div className="auth-container">
+    <div className="contenedor-login">
       <h1>Bienvenida®</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className="formulario">
+        <div className="grupo-input">
           <label htmlFor="email">Correo Institucional</label>
           <input
             type="email"
@@ -27,10 +27,11 @@ const Login: React.FC = () => {
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             required
+            className="campo"
           />
         </div>
         
-        <div className="form-group">
+        <div className="grupo-input">
           <label htmlFor="password">Contraseña</label>
           <input
             type="password"
@@ -38,24 +39,26 @@ const Login: React.FC = () => {
             value={password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             required
+            className="campo"
           />
         </div>
         
-        <div className="form-group checkbox">
+        <div className="opcion-recordar">
           <input
             type="checkbox"
             id="rememberMe"
             checked={rememberMe}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setRememberMe(e.target.checked)}
+            className="casilla"
           />
           <label htmlFor="rememberMe">He leído y acepto la Política de Privacidad</label>
         </div>
         
-        <button type="submit" className="auth-button">Iniciar Sesión</button>
+        <button type="submit" className="boton-login">Iniciar Sesión</button>
       </form>
       
-      <div className="auth-footer">
-        <p>No tienes cuenta? <Link to="/register" className="auth-link">Crear cuenta</Link></p>
+      <div className="pie-formulario">
+        <p>No tienes cuenta? <Link to="/register" className="enlace-registro">Crear cuenta</Link></p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './Register.css'
 
 const Register: React.FC = () => {
   const [schoolName, setSchoolName] = useState<string>('');
@@ -12,7 +13,6 @@ const Register: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Validaciones
     if (password !== confirmPassword) {
       alert('Las contraseñas no coinciden');
       return;
@@ -30,9 +30,6 @@ const Register: React.FC = () => {
       document: document ? document.name : 'No subido',
       termsAccepted 
     });
-    
-    // Redirigir después del registro (simulado)
-    // navigate('/login');
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,85 +39,91 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="contenedor-registro">
       <h1>Crear cuenta</h1>
-      <p>Por favor completa los campos</p>
+      <p className="instrucciones">Por favor completa los campos</p>
       
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className="formulario-registro">
+        <div className="grupo-campo">
           <label htmlFor="schoolName">Nombre del Colegio</label>
           <input
             type="text"
             id="schoolName"
             value={schoolName}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setSchoolName(e.target.value)}
+            className="campo-formulario"
             required
           />
         </div>
         
-        <div className="form-group">
+        <div className="grupo-campo">
           <label htmlFor="email">Correo Institucional</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-            required
+            className="campo-formulario"
             placeholder="usuario@dominio.edu"
+            required
           />
-          <small className="hint">Formato de correo válido + dominio educativo (edu, gov, etc.)</small>
+          <small className="texto-ayuda">Formato de correo válido + dominio educativo (edu, gov, etc.)</small>
         </div>
         
-        <div className="form-group">
+        <div className="grupo-campo">
           <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+            className="campo-formulario"
             required
           />
         </div>
         
-        <div className="form-group">
+        <div className="grupo-campo">
           <label htmlFor="confirmPassword">Confirmar contraseña</label>
           <input
             type="password"
             id="confirmPassword"
             value={confirmPassword}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
+            className="campo-formulario"
             required
           />
         </div>
         
-        <div className="form-group">
+        <div className="grupo-archivo">
           <label htmlFor="document">Documento de Identidad del Administrador</label>
           <input
             type="file"
             id="document"
             onChange={handleFileChange}
+            className="campo-archivo"
             accept=".pdf,.doc,.docx"
             required
           />
-          <small className="hint">Ejemplo: Cargar PDF/RUT del colegio o identificación del rector.</small>
+          <small className="texto-ayuda">Ejemplo: Cargar PDF/RUT del colegio o identificación del rector.</small>
         </div>
         
-        <div className="form-group checkbox">
+        <div className="grupo-acepto">
           <input
             type="checkbox"
             id="termsAccepted"
             checked={termsAccepted}
             onChange={(e: ChangeEvent<HTMLInputElement>) => setTermsAccepted(e.target.checked)}
+            className="casilla-verificacion"
             required
           />
           <label htmlFor="termsAccepted">He leído y acepto la Política de Privacidad</label>
         </div>
         
-        <button type="submit" className="auth-button">Registrarse</button>
+        <button type="submit" className="boton-registro">Registrarse</button>
       </form>
       
-      <div className="auth-footer">
-        <p>Tienes cuenta? <Link to="/login" className="auth-link">Iniciar Sesión</Link></p>
+      <div className="pie-registro">
+        <p>Tienes cuenta? <Link to="/login" className="enlace-login">Iniciar Sesión</Link></p>
       </div>
     </div>
   );

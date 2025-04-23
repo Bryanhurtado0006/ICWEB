@@ -1,0 +1,106 @@
+/* Estilos para el registro */
+.contenedor-registro {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contenedor-registro h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .instrucciones {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .formulario-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .grupo-campo, .grupo-archivo, .grupo-acepto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .grupo-campo label, .grupo-archivo label {
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .campo-formulario {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .campo-formulario:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  .texto-ayuda {
+    color: #666;
+    font-size: 0.8rem;
+  }
+  
+  .campo-archivo {
+    padding: 0.5rem;
+    border: 1px dashed #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  .grupo-acepto {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .casilla-verificacion {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .boton-registro {
+    padding: 0.9rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .boton-registro:hover {
+    background-color: #45a049;
+  }
+  
+  .pie-registro {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+  }
+  
+  .enlace-login {
+    color: #4CAF50;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .enlace-login:hover {
+    text-decoration: underline;
+  }
